@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title></title>
+</head>
+
+<body>
+  <form method="post" action="/">
+    <input type="text" class="weatherName" id="weatherName" name="weatherName" placeholder="Lütfen Bir Şehir Giriniz">
+  <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> </button>
+  </form>
+    {% if weather %}
+<div class="card">
+  <img src="https://media.discordapp.net/attachments/997892593935462410/1031204066988142683/Screenshot_20221016-115041_Discord-removebg-preview.png">
+  <li><strong>İl</strong>: {{ weather.name }}</li>
+  <li><strong>Hava Durumu</strong>: {{ weather.main.temp }}</li>
+  <li><strong>Hava Değerlendirmesi</strong>: {{ weather.weather[0].main }}</li>
+  <li><strong>Max/Min Derece</strong>: {{ weather.main.temp_max}}°/{{weather.main.temp_min}}°</li>
+  <li><strong>Hissedilen</strong>: {{ weather.main.feels_like }}</li>
+</div>
+    {% endif %}
+</body>
+<style>
+body{
+  margin:0;
+  padding:0;
+  border-box:box-sizing
+}
+.card{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+ width:90%;
+ margin-left:5%;
+ margin-top:5%;
+ margin-right:5%;
+ height:auto;
+ background-color:white;
+ border-radius:10px;
+ border-color:black;
+ transition: all 1.2s ease-in-out;
+ border-color:black;
+ margin-bottom:3%
+}
+.card:hover{
+-webkit-box-shadow:5px 0px 10px 10px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px 0px 10px 10px rgba(0,0,0,0.75);
+box-shadow: 5px 0px 10px 10px rgba(0,0,0,0.75);
+transform:scale(0.9);
+transition: all 1.2s ease-in-out;
+}
+.card img{
+  width:60%;
+  height:30%;
+  margin-top:2%;
+  margin-left:20%;
+  border-radius:25px;
+}
+.card li{
+  list-style:none;
+  margin-left:10%;
+  margin-top:30px;
+}
+
+.card strong{
+  font-family:sans+'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+input{
+  height:50px;
+  width:50%;
+  margin-left:20%;
+  padding-left:10px;
+  margin-top:10%;
+}
+
+button{
+  background-color:#4169E1;
+  height:50px;
+  width:75px;
+  font-size:20px;
+  margin-top:10%;
+} 
+
+button:hover{
+background-color:#4682B4;
+}
+</style>
+</html>
